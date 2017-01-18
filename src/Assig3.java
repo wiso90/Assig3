@@ -8,25 +8,30 @@ public class Assig3
 	// TODO Auto-generated method stub
 
     }
-    
-    
-    
-    public static Card getCard(char value, Card.Suit suit)
-    {
-    	Card myCard = new Card();
-    	return myCard;
-    }
-
 }
 
 class Card
 {
-    private char value;
+	private char value;
     private Suit suit;
     private boolean errorFlag;
     
     public static enum Suit
     {
     	CLUBS, DIAMONDS, HEARTS, SPADES
+    }
+    
+    public static Card getCard(char value, Suit suit)
+    {
+    	Card myCard = new Card();
+    	return myCard;
+    }
+    
+    public static Card getCard()	//method overload
+    {
+    	Card myCard = new Card();
+       	myCard.value = 'A';
+       	String suit = "SPADES"; 
+    	return myCard;
     }
 }
