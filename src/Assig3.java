@@ -8,12 +8,25 @@ public class Assig3
 	// TODO Auto-generated method stub
 
     }
-
-    public static enum Suit{CLUBS, DIAMONDS, HEARTS, SPADES};
     
-    private int value;
-    private String suit;
+    
+    
+    public static Card getCard(char value, Card.Suit suit)
+    {
+    	Card myCard = new Card();
+    	return myCard;
+    }
+
+}
+
+class Card
+{
+    private char value;
+    private Suit suit;
     private boolean errorFlag;
     
-    public void Card(char value = "A", suit = SPADES);
+    public static enum Suit
+    {
+    	CLUBS, DIAMONDS, HEARTS, SPADES
+    }
 }
