@@ -77,7 +77,7 @@ class Card
     {
     	if (errorFlag == false)
     	{
-    		return getValue() + " of " + getSuit();
+    		return value + " of " + suit;
     	}else{
     		return "ILLEGAL STATE";
     	}
@@ -88,18 +88,10 @@ class Card
     	return value;
     }
     
-    public String getSuit()
+    public Suit getSuit()
     {
-    	switch (suit)
-    	{
-    	case CLUBS:
-    		return "Clubs";
-    	case DIAMONDS:
-    		return "Diamonds";
-    	case HEARTS:
-    		return "Hearts";    	
-    	}
-    	return "Spades";    	
+    	
+    	return suit;    	
     }
     
     public boolean getErrorFlag()
@@ -118,4 +110,52 @@ class Card
     {
     	this.suit = suit;   	
     }
+}
+
+
+class Hand 
+{
+	public static final int MAX_CARDS = 50;
+	
+	private Card[] myCards;
+	private int numCards;
+	
+	public Hand ()
+	{
+		this.numCards = 0; //initialize number of cards in hand
+	}
+	public void resetHand()
+	{
+		this.numCards = 0;
+	}
+
+	public boolean takeCard(Card card)
+	{
+		if (numCards < MAX_CARDS)
+		{
+			myCards[numCards] = card;
+			numCards++;
+			
+			return true;
+		}else{
+			return false;
+		}
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
