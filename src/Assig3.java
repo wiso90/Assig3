@@ -45,7 +45,7 @@ public class Assig3
     	
     	//Inspecting cards in hand
     	System.out.println("--- Inspection ---");  	
-    	System.out.println(hand.inspectCard(18).toString()); // inspecting the card at index 18 in hand
+    	System.out.println(hand.inspectCard(1).toString()); // inspecting the card at index 18 in hand
     	System.out.println(hand.inspectCard(51).toString()); // inspecting the card at non-existent index in hand
     	   	
     	
@@ -60,7 +60,15 @@ public class Assig3
     	System.out.println("After playing all cards...");
     	System.out.println("Hand = " + hand.toString()); // should be nothing left in hand to print
     	
+    	// Printing out a typical deck
+    	System.out.println("Populating deck...");
     	
+    	Deck myDeck = new Deck();
+
+    	for (Card currentCard : myDeck.getPack())
+    	{
+    		System.out.println(currentCard.getValue() + " " + currentCard.getSuit());
+    	}
     	
     }
 }
@@ -77,7 +85,7 @@ class Card
     }
     
     public final static char[] cardNumber = {'2', '3', '4', '5', '6', '7', 
-    											'8', '9', 'T', 'J', 'Q', 'K','A'}; // constant array of valid characters
+    											'8', '9', 'T', 'J', 'Q', 'K', 'A'}; // constant array of valid characters
     
     public Card(char value, Suit suit)
     {    	
@@ -237,6 +245,59 @@ class Hand
 		}
 		
 		return new Card('0', Card.Suit.SPADES);
+	}	
+}
+
+class Deck
+{
+	public static final int MAX_CARDS = 6*52;
+	
+	private static final int NUMBER_OF_CARDS = 52; 
+	private static Card[] masterPack= new Card[NUMBER_OF_CARDS]; 
+	
+	private Card[] cards;
+	private int topCard;
+	private int numPacks;
+	
+	public Deck(int numPacks)
+	{
+		
+		allocateMasterPack();
+		
+		
+	}
+	
+	
+	public Deck()
+	{
+		
+		allocateMasterPack();
+		
+	}
+	
+	private static void allocateMasterPack()
+	{
+		Card.Suit suit;
+		
+		for (int i = 0; i < masterPack.length; i++)
+		{
+			if(i < 13)
+	            suit = Card.Suit.CLUBS;
+	         else if(i >= 13 && i < 26)
+	            suit = Card.Suit.DIAMONDS;
+	         else if(i >= 26 && i < 39)
+	            suit = Card.Suit.HEARTS;
+	         else
+	            suit = Card.Suit.SPADES;
+
+	         masterPack[i] = new Card(Card.cardNumber[ i % 13 ], suit); // change suit after every 13th card
+		}
+			
+	}
+	
+	public Card[] getPack()
+	{
+		return masterPack;
 	}
 	
 	
@@ -245,4 +306,8 @@ class Hand
 	
 	
 	
+	
+	
+	
 }
+
