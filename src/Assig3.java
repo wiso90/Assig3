@@ -75,7 +75,7 @@ public class Assig3
 
 class Card
 {	
-	private char value;
+    private char value;
     private Suit suit;
     private boolean errorFlag;
     
@@ -300,8 +300,13 @@ class Deck
 		return masterPack;
 	}
 	
-	
-	
+	public void shuffle() {
+
+	        topCard = 0;
+
+	        Collections.shuffle(Arrays.asList(cards));
+	    }
+
 	
 	
 	
