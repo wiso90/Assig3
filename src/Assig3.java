@@ -306,7 +306,17 @@ class Deck
 
 	        Collections.shuffle(Arrays.asList(cards));
 	    }
+	public Card dealCard() {
+	        Card theCard;
+	        if (topCard < cards.length) {
+	            theCard = cards[topCard];
+	            topCard++;
+	        }
+	        else
+	            theCard = null;
 
+	        return theCard;
+	    }
 	
 	
 	
