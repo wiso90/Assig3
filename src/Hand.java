@@ -12,6 +12,7 @@ class Hand
 	}
 	public void resetHand()
 	{
+		myCards = new Card[MAX_CARDS];
 		this.numCards = 0;
 	}
 
