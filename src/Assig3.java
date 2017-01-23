@@ -300,7 +300,7 @@ class Deck
 		return masterPack;
 	}
 	
-	public void shuffle() {
+	public void shuffle() {//need to be updated
 
 	        topCard = 0;
 
