@@ -40,5 +40,13 @@ public class CardCheck
       assertEquals("ILLEGAL STATE", a.toString());
 
    }
-
+ @Test
+ public void initCardTest(){
+    Deck d = new Deck(3);
+   assertEquals(52*3, d.getPack().length);
+   Deck c = new Deck();
+   assertEquals(52, c.getPack().length);
+   //assertEquals(false, c.emptyMasterPack); //private variable
+   //assertEquals(1, c.calls);
+ }
 }

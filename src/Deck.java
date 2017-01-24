@@ -13,7 +13,6 @@ class Deck
    private Card[] cards;
    private int topCard;
    private int numPacks;
-
    /**
     * a constructor that populates the arrays and assigns initial values to
     * members.
@@ -26,21 +25,41 @@ class Deck
       {
     	  this.numPacks = 1; // default pack is 1 if number of packs exceed MAX_CARDS
       }
+<<<<<<< HEAD
       allocateMasterPack(); // initialize MasterPack
       init(numPacks);	// make a certain amount of decks using MasterPack as the model
 
+=======
+      init(numPacks);
+>>>>>>> master
    }
 
+   /**
+    * initializes the Deck to 1 pack by default
+    */
    public Deck()
    {
+<<<<<<< HEAD
       this.numPacks = 1; // if no parameters passed, 1 pack is assumed
       allocateMasterPack(); 
       init(numPacks); 
 
+=======
+      if (emptyMasterPack)
+      {
+         allocateMasterPack();
+      }
+      init(1);
+>>>>>>> master
    }
 
+   /**
+    * initializes the cards array.
+    * @param numPacks
+    */
    public void init(int numPacks)
    {
+<<<<<<< HEAD
 	  cards = new Card[numPacks * NUMBER_OF_CARDS];
 	  for (int i = 0; i < cards.length; i++)
 	  {
@@ -48,6 +67,13 @@ class Deck
 		  topCard++;
 	  }
 
+=======
+      cards = new Card[numPacks * NUMBER_OF_CARDS];
+      for (int i = 0; i < cards.length; i++)
+      {
+         cards[i] = masterPack[i % 52];
+      }
+>>>>>>> master
    }
 
    private static void allocateMasterPack()
@@ -70,6 +96,7 @@ class Deck
          // change suit after every 13th card
          masterPack[i] = new Card(Card.cardNumber[i % 13], suit);
       }
+      emptyMasterPack = false;
    }
 
    public Card[] getPack()
@@ -80,7 +107,10 @@ class Deck
    public void shuffle()
    {
       Card temp;
+<<<<<<< HEAD
   
+=======
+>>>>>>> master
       for (int i = cards.length - 1; i > 0; i--)
       {
          int rand = (int) (Math.random() * i);
@@ -91,6 +121,10 @@ class Deck
 
    }
 
+   /**
+    * 
+    * @return
+    */
    public Card dealCard()
    {
 	  if(topCard == 0)
