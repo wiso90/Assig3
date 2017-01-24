@@ -7,7 +7,6 @@ public class Assig3
 
     public static void main(String[] args)
     {
-	// TODO Auto-generated method stub
     	
     	//----- Card Class testing ------
     	System.out.println("----- Card Class testing ------");
@@ -15,7 +14,7 @@ public class Assig3
     	Card kingHearts = new Card('K', Card.Suit.HEARTS);
     	Card sevenSpades = new Card('7', Card.Suit.SPADES);
 		Card illegalCard = new Card('0', Card.Suit.DIAMONDS);
-
+		
 		System.out.println(kingHearts.toString());
 		System.out.println(sevenSpades.toString());
 		System.out.println(illegalCard.toString());

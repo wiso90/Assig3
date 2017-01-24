@@ -6,13 +6,19 @@
 class Hand {
 	public static final int MAX_CARDS = 50;
 
-	private Card[] myCards = new Card[MAX_CARDS];
+	private Card[] myCards;
 	private int numCards;
 
+	/**
+	 * 
+	 */
 	public Hand() {
-		this.numCards = 0; // initialize number of cards in hand
+		resetHand();
 	}
-
+	
+	/**
+	 * Removes all cards from the hand.
+	 */
 	public void resetHand() {
 		myCards = new Card[MAX_CARDS];
 		this.numCards = 0;
