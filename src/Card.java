@@ -59,7 +59,8 @@ class Card {
 	}
 
 	/**
-	 * isValid checks if the cards value and suit are valid.
+	 * isValid checks if the cards value and suit are valid. Suit is unchecked
+	 * at this time.
 	 * 
 	 * @param value
 	 * @param suit
@@ -75,9 +76,10 @@ class Card {
 	}
 
 	/**
-	 * Checks if a card is equal 
+	 * Checks if a card is equal to this card
+	 * 
 	 * @param card
-	 * @return
+	 * @return true of false.
 	 */
 	boolean equals(Card card) {
 		boolean same;
