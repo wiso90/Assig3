@@ -14,7 +14,6 @@ class Deck
    private Card[] cards;
    private int topCard;
    private int numPacks;
-   public static int calls;
    /**
     * a constructor that populates the arrays and assigns initial values to
     * members.
