@@ -10,7 +10,6 @@ class Deck
    private static final int NUMBER_OF_CARDS = 52;
    public static final int MAX_CARDS = 6 * NUMBER_OF_CARDS;
    private static Card[] masterPack = new Card[NUMBER_OF_CARDS];
-   private static boolean emptyMasterPack = true;
    private Card[] cards;
    private int topCard;
    private int numPacks;
@@ -23,24 +22,31 @@ class Deck
     */
    public Deck(int numPacks)
    {
-      if (emptyMasterPack)
+      if (numPacks * NUMBER_OF_CARDS > MAX_CARDS)
       {
-         allocateMasterPack();
+    	  this.numPacks = 1; // default pack is 1 if number of packs exceed MAX_CARDS
       }
+      allocateMasterPack(); // initialize MasterPack
+      init(numPacks);	// make a certain amount of decks using MasterPack as the model
 
    }
 
    public Deck()
    {
-      if (emptyMasterPack)
-      {
-         allocateMasterPack();
-      }
+      this.numPacks = 1; // if no parameters passed, 1 pack is assumed
+      allocateMasterPack(); 
+      init(numPacks); 
 
    }
 
    public void init(int numPacks)
    {
+	  cards = new Card[numPacks * NUMBER_OF_CARDS];
+	  for (int i = 0; i < cards.length; i++)
+	  {
+		  cards[i] = masterPack[i % 52];
+		  topCard++;
+	  }
 
    }
 
@@ -61,21 +67,20 @@ class Deck
          {
             suit = Card.Suit.SPADES;
          }
-         // chang suit after every 13th card
+         // change suit after every 13th card
          masterPack[i] = new Card(Card.cardNumber[i % 13], suit);
       }
    }
 
    public Card[] getPack()
    {
-      return masterPack;
+      return cards;
    }
 
    public void shuffle()
    {
       Card temp;
-      cards = masterPack;
-
+  
       for (int i = cards.length - 1; i > 0; i--)
       {
          int rand = (int) (Math.random() * i);
@@ -84,21 +89,26 @@ class Deck
          cards[i] = cards[rand];
          cards[rand] = temp;
       }
-      topCard = 0;
 
    }
 
    public Card dealCard()
    {
-      Card theCard;
-      if (topCard < cards.length)
-      {
-         theCard = cards[topCard];
-         topCard++;
-      } else
-         theCard = null;
-
-      return theCard;
+	  if(topCard == 0)
+	  {
+		  return null;
+	  }
+	       
+	  Card theCard = new Card(cards[topCard-1].getValue(), cards[topCard-1].getSuit());
+	  cards[topCard-1] = null;
+	  topCard--;
+	       
+	  return theCard;
+   }
+   
+   public int getTopCard()
+   {
+	   return topCard;
    }
 
 }

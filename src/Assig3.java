@@ -37,7 +37,7 @@ public class Assig3
 
       // Inspecting cards in hand
       System.out.println("--- Inspection ---");
-      System.out.println(hand.inspectCard(1).toString()); // inspecting the
+      System.out.println(hand.inspectCard(18).toString()); // inspecting the
       // card at index 18
       // in hand
       System.out.println(hand.inspectCard(51).toString()); // inspecting the
@@ -59,13 +59,14 @@ public class Assig3
       // Printing out a typical deck
       System.out.println("Populating deck...");
 
-      Deck myDeck = new Deck();
+      Deck myDeck = new Deck(3);
+      myDeck.shuffle();
 
       for (Card currentCard : myDeck.getPack())
       {
          System.out.println(currentCard.getValue() + " "
             + currentCard.getSuit());
       }
-
+      System.out.println(myDeck.getPack().length);
    }
 }
