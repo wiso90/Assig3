@@ -75,7 +75,22 @@ class Card {
 	}
 
 	/**
-	 * returns the String version of the card 
+	 * Checks if a card is equal 
+	 * @param card
+	 * @return
+	 */
+	boolean equals(Card card) {
+		boolean same;
+		if (this.suit == card.getSuit() && this.value == card.getValue()) {
+			same = true;
+		} else {
+			same = false;
+		}
+		return same;
+	}
+
+	/**
+	 * returns the String version of the card
 	 */
 	public String toString() {
 		if (errorFlag == false) {
@@ -87,6 +102,7 @@ class Card {
 
 	/**
 	 * Returns the value of the card
+	 * 
 	 * @return value
 	 */
 	public char getValue() {
@@ -95,6 +111,7 @@ class Card {
 
 	/**
 	 * returns the suit of the cart
+	 * 
 	 * @return suit
 	 */
 	public Suit getSuit() {
@@ -103,18 +120,10 @@ class Card {
 
 	/**
 	 * Returns the error flag.
+	 * 
 	 * @return
 	 */
 	public boolean getErrorFlag() {
 		return errorFlag;
-	}
-
-	// ------------- Individual mutators not needed yet (?) --------------
-	public void setValue(char value) {
-		this.value = value;
-	}
-
-	public void setSuit(Suit suit) {
-		this.suit = suit;
 	}
 }
