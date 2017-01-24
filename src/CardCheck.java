@@ -10,7 +10,7 @@ public class CardCheck {
 
 	@Test
 	public void shuffleTest() {
-		Deck d = new Deck(2);
+		Deck d = new Deck(1);
 		System.out.println(Arrays.toString(d.getPack()));
 		Card [] old = d.getPack().clone();
 		d.shuffle();
