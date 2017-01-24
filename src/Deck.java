@@ -10,9 +10,11 @@ class Deck
    private static final int NUMBER_OF_CARDS = 52;
    public static final int MAX_CARDS = 6 * NUMBER_OF_CARDS;
    private static Card[] masterPack = new Card[NUMBER_OF_CARDS];
+   private static boolean emptyMasterPack = true;
    private Card[] cards;
    private int topCard;
    private int numPacks;
+
    /**
     * a constructor that populates the arrays and assigns initial values to
     * members.
@@ -23,15 +25,15 @@ class Deck
    {
       if (numPacks * NUMBER_OF_CARDS > MAX_CARDS)
       {
-    	  this.numPacks = 1; // default pack is 1 if number of packs exceed MAX_CARDS
+         this.numPacks = 1; // default pack is 1 if number of packs exceed
+                            // MAX_CARDS
       }
-<<<<<<< HEAD
-      allocateMasterPack(); // initialize MasterPack
-      init(numPacks);	// make a certain amount of decks using MasterPack as the model
-
-=======
-      init(numPacks);
->>>>>>> master
+      if (emptyMasterPack)
+      {
+         allocateMasterPack();
+      }
+      init(numPacks); // make a certain amount of decks using MasterPack as the
+                      // model
    }
 
    /**
@@ -39,41 +41,30 @@ class Deck
     */
    public Deck()
    {
-<<<<<<< HEAD
       this.numPacks = 1; // if no parameters passed, 1 pack is assumed
-      allocateMasterPack(); 
-      init(numPacks); 
 
-=======
       if (emptyMasterPack)
       {
          allocateMasterPack();
       }
-      init(1);
->>>>>>> master
+      init(numPacks);
    }
 
    /**
     * initializes the cards array.
+    * 
     * @param numPacks
     */
    public void init(int numPacks)
    {
-<<<<<<< HEAD
-	  cards = new Card[numPacks * NUMBER_OF_CARDS];
-	  for (int i = 0; i < cards.length; i++)
-	  {
-		  cards[i] = masterPack[i % 52];
-		  topCard++;
-	  }
 
-=======
       cards = new Card[numPacks * NUMBER_OF_CARDS];
       for (int i = 0; i < cards.length; i++)
       {
          cards[i] = masterPack[i % 52];
+         topCard++;
       }
->>>>>>> master
+
    }
 
    private static void allocateMasterPack()
@@ -107,10 +98,6 @@ class Deck
    public void shuffle()
    {
       Card temp;
-<<<<<<< HEAD
-  
-=======
->>>>>>> master
       for (int i = cards.length - 1; i > 0; i--)
       {
          int rand = (int) (Math.random() * i);
@@ -127,21 +114,22 @@ class Deck
     */
    public Card dealCard()
    {
-	  if(topCard == 0)
-	  {
-		  return null;
-	  }
-	       
-	  Card theCard = new Card(cards[topCard-1].getValue(), cards[topCard-1].getSuit());
-	  cards[topCard-1] = null;
-	  topCard--;
-	       
-	  return theCard;
+      if (topCard == 0)
+      {
+         return null;
+      }
+
+      Card theCard = new Card(cards[topCard - 1].getValue(),
+         cards[topCard - 1].getSuit());
+      cards[topCard - 1] = null;
+      topCard--;
+
+      return theCard;
    }
-   
+
    public int getTopCard()
    {
-	   return topCard;
+      return topCard;
    }
 
 }
