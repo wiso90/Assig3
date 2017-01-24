@@ -14,7 +14,7 @@ class Deck
    private Card[] cards;
    private int topCard;
    private int numPacks;
-
+   public static int calls;
    /**
     * a constructor that populates the arrays and assigns initial values to
     * members.
@@ -27,21 +27,32 @@ class Deck
       {
          allocateMasterPack();
       }
-
+      init(numPacks);
    }
 
+   /**
+    * initializes the Deck to 1 pack by default
+    */
    public Deck()
    {
       if (emptyMasterPack)
       {
          allocateMasterPack();
       }
-
+      init(1);
    }
 
+   /**
+    * initializes the cards array.
+    * @param numPacks
+    */
    public void init(int numPacks)
    {
-
+      cards = new Card[numPacks * NUMBER_OF_CARDS];
+      for (int i = 0; i < cards.length; i++)
+      {
+         cards[i] = masterPack[i % 52];
+      }
    }
 
    private static void allocateMasterPack()
@@ -64,18 +75,17 @@ class Deck
          // chang suit after every 13th card
          masterPack[i] = new Card(Card.cardNumber[i % 13], suit);
       }
+      emptyMasterPack = false;
    }
 
    public Card[] getPack()
    {
-      return masterPack;
+      return cards;
    }
 
    public void shuffle()
    {
       Card temp;
-      cards = masterPack;
-
       for (int i = cards.length - 1; i > 0; i--)
       {
          int rand = (int) (Math.random() * i);
@@ -88,6 +98,10 @@ class Deck
 
    }
 
+   /**
+    * 
+    * @return
+    */
    public Card dealCard()
    {
       Card theCard;
