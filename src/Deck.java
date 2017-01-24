@@ -84,7 +84,6 @@ class Deck
       for (int i = cards.length - 1; i > 0; i--)
       {
          int rand = (int) (Math.random() * i);
-         // System.out.println(rand);
          temp = cards[i];
          cards[i] = cards[rand];
          cards[rand] = temp;
