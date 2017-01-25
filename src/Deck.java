@@ -1,6 +1,6 @@
 
 /**
- * 
+ * The Deck class is responsible for holding multipe packs and dealing cards.
  * @author Huy Nguyen, Wissawakon Sriwarom, Keith Groves
  *
  */

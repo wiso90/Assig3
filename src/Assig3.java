@@ -1,6 +1,13 @@
-// Assignment 3: Cards
-// Name: Huy Nguyen, Wissawakon Sriwarom, Keith Groves
+import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
+/**
+ * Assignment 3: Cards Name: Huy Nguyen, Wissawakon Sriwarom, Keith Groves
+ * 
+ * @author Keith
+ *
+ */
 public class Assig3
 {
 
@@ -56,17 +63,40 @@ public class Assig3
       System.out.println("Hand = " + hand.toString()); // should be nothing left
                                                        // in hand to print
 
+      // Deck Test
       // Printing out a typical deck
       System.out.println("Populating deck...");
-
-      Deck myDeck = new Deck(3);
-      myDeck.shuffle();
-
-      for (Card currentCard : myDeck.getPack())
-      {
-         System.out.println(currentCard.getValue() + " "
-            + currentCard.getSuit());
+      Deck myDeck = new Deck(2);
+      while(myDeck.getTopCard() > 0){
+         System.out.println(myDeck.dealCard());
       }
-      System.out.println(myDeck.getPack().length);
+      myDeck.init(2);
+      myDeck.shuffle();
+      while(myDeck.getTopCard() > 0){
+         System.out.println(myDeck.dealCard());
+      }
+      System.out.println("Populating deck...");
+      myDeck = new Deck();
+      while(myDeck.getTopCard() > 0){
+         System.out.println(myDeck.dealCard());
+      }
+      myDeck.init(1);
+      myDeck.shuffle();
+      while(myDeck.getTopCard() > 0){
+         System.out.println(myDeck.dealCard());
+      }
+      
+      
+//      myDeck.shuffle();
+//
+//      for (Card currentCard : myDeck.getPack())
+//      {
+//         System.out.println(currentCard.getValue() + " "
+//            + currentCard.getSuit());
+//      }
+//      System.out.println(myDeck.getPack().length);
+//      
+//      Scanner kb = new Scanner(System.in);
+//      int numPlayers = kb.nextInt();
    }
 }

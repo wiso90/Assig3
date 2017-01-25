@@ -7,7 +7,6 @@
 class Hand
 {
    public static final int MAX_CARDS = 50;
-   // TODO: add some comments;
    private Card[] myCards;
    private int numCards;
 
