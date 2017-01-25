@@ -14,7 +14,14 @@ public class Assig3
    public static void main(String[] args)
    {
 
-      // ----- Card Class testing ------
+       // should be nothing left
+                                                       // in hand to print
+     phase3Test();
+     phase4Test();
+   }
+   
+   public void phase2Test(){
+   // ----- Card Class testing ------
       System.out.println("----- Card Class testing ------");
 
       Card kingHearts = new Card('K', Card.Suit.HEARTS);
@@ -60,11 +67,10 @@ public class Assig3
       }
 
       System.out.println("After playing all cards...");
-      System.out.println("Hand = " + hand.toString()); // should be nothing left
-                                                       // in hand to print
-
-      // Deck Test
-      // Printing out a typical deck
+      System.out.println("Hand = " + hand.toString());
+   }
+   
+   public static void phase3Test(){
       System.out.println("Populating deck...");
       Deck myDeck = new Deck(2);
       while(myDeck.getTopCard() > 0){
@@ -85,18 +91,39 @@ public class Assig3
       while(myDeck.getTopCard() > 0){
          System.out.println(myDeck.dealCard());
       }
-      
-      
-//      myDeck.shuffle();
-//
-//      for (Card currentCard : myDeck.getPack())
-//      {
-//         System.out.println(currentCard.getValue() + " "
-//            + currentCard.getSuit());
-//      }
-//      System.out.println(myDeck.getPack().length);
-//      
-//      Scanner kb = new Scanner(System.in);
-//      int numPlayers = kb.nextInt();
    }
+   /**
+    * The Deck test
+    * 
+    */
+public static void phase4Test(){
+   Scanner kb = new Scanner(System.in);
+   int numPlayers = 0;
+   while(numPlayers < 1 || numPlayers > 10){
+      System.out.println("How many hands? (1 - 10, please)");
+      numPlayers = kb.nextInt();
+   }
+   Hand [] playerHands = new Hand[numPlayers];
+   
+   for(int i = 0; i< playerHands.length; i++){
+      playerHands[i] = new Hand();
+   }
+   
+   Deck phase4Deck = new Deck();
+   for (int j = 0; j < phase4Deck.getPack().length; j++){
+      Card card = phase4Deck.dealCard();
+      playerHands[j%numPlayers].takeCard(card);
+      System.out.println(card);
+   }
+   for(Hand h : playerHands){
+      h.resetHand();
+   }
+   phase4Deck.init(1);
+   phase4Deck.shuffle();
+   for (int j = 0; j < phase4Deck.getPack().length; j++){
+      Card card = phase4Deck.dealCard();
+      playerHands[j%numPlayers].takeCard(card);
+      System.out.println(card);
+   }
+}
 }
