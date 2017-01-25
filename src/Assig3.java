@@ -3,7 +3,8 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 /**
- * Assignment 3: Cards Name: Huy Nguyen, Wissawakon Sriwarom, Keith Groves
+ * Assignment 3: Cards 
+ * Name: Huy Nguyen, Wissawakon Sriwarom, Keith Groves
  * 
  * @author Keith
  *
@@ -18,7 +19,10 @@ public class Assig3
       phase3Test();
       phase4Test();
    }
-
+   
+   /**
+    * phase 1 test of the Card class.
+    */
    public static void phase1Test()
    {
       System.out.println("----- Card Class testing ------");
