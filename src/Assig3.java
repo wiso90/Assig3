@@ -42,7 +42,6 @@ public class Assig3
    public static void phase2Test()
    {
       System.out.println("----- Hand Class testing ------");
-
       // Create between two and five explicit Card objects and one Hand
       // object.
       Card kingHearts = new Card('K', Card.Suit.HEARTS);
@@ -51,7 +50,6 @@ public class Assig3
       Card[] cards =
       { kingHearts, sevenSpades, aceSpades };
       Hand hand = new Hand();
-
       // a to populate the hand until the maximum allowable cards is met.
       int index = 0;
       while (hand.getNumCards() < Hand.MAX_CARDS)
@@ -59,10 +57,8 @@ public class Assig3
          hand.takeCard(cards[index % 3]);
          index++;
       }
-
       // Display the hand using toString().
       System.out.println(hand);
-
       System.out.println("--- Inspection ---");
       System.out.println(hand.inspectCard(18).toString());
       System.out.println(hand.inspectCard(51).toString());
@@ -74,7 +70,6 @@ public class Assig3
       {
          System.out.println(i + ") Playing: " + hand.playCard().toString());
       }
-
       System.out.println("After playing all cards...");
       System.out.println("Hand = " + hand.toString());
    }
@@ -139,6 +134,7 @@ public class Assig3
       }
       for (Hand h : playerHands)
       {
+         System.out.println("Hand= " + h.toString() +"\n");
          h.resetHand();
       }
       phase4Deck.init(1);
@@ -147,7 +143,7 @@ public class Assig3
       {
          Card card = phase4Deck.dealCard();
          playerHands[j % numPlayers].takeCard(card);
-         System.out.println(card);
+         //System.out.println(card);
       }
    }
 }
