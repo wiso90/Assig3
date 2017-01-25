@@ -1,3 +1,5 @@
+
+
 /**
  * The Card class is responsible for holding data and methods related to the
  * individual cards. It contains instance variables for the value and suit. It
@@ -148,9 +150,10 @@ class Card
    {
       return errorFlag;
    }
-   
+
    /**
     * Clone is a method that creates a copy of the card.
+    * 
     * @return copy of the card.
     */
    public Card clone()

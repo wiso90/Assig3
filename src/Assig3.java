@@ -3,8 +3,7 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 /**
- * Assignment 3: Cards 
- * Name: Huy Nguyen, Wissawakon Sriwarom, Keith Groves
+ * Assignment 3: Cards Name: Huy Nguyen, Wissawakon Sriwarom, Keith Groves
  * 
  * @author Keith
  *
@@ -19,7 +18,7 @@ public class Assig3
       phase3Test();
       phase4Test();
    }
-   
+
    /**
     * phase 1 test of the Card class.
     */
@@ -134,7 +133,7 @@ public class Assig3
       }
       for (Hand h : playerHands)
       {
-         System.out.println("Hand= " + h.toString() +"\n");
+         System.out.println("Hand= " + h.toString() + "\n");
          h.resetHand();
       }
       phase4Deck.init(1);
@@ -147,7 +146,7 @@ public class Assig3
       System.out.println("Our hands from a shuffled deck:");
       for (Hand h : playerHands)
       {
-         System.out.println("Hand= " + h.toString() +"\n");
+         System.out.println("Hand= " + h.toString() + "\n");
          h.resetHand();
       }
       kb.close();
