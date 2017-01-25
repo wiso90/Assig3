@@ -14,13 +14,12 @@ public class Assig3
    public static void main(String[] args)
    {
 
-       // should be nothing left
-                                                       // in hand to print
+     phase2Test();
      phase3Test();
      phase4Test();
    }
    
-   public void phase2Test(){
+   public static void phase2Test(){
    // ----- Card Class testing ------
       System.out.println("----- Card Class testing ------");
 
