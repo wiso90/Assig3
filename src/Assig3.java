@@ -19,6 +19,9 @@ public class Assig3
       phase4Test();
    }
 
+   /**
+    * Phase 1 test of the card class.
+    */
    public static void phase1Test()
    {
       System.out.println("----- Card Class testing ------");
@@ -48,9 +51,7 @@ public class Assig3
       { kingHearts, sevenSpades, aceSpades };
       Hand hand = new Hand();
 
-      // Use takeCard() on these few cards (resulting in many, unavoidable
-      // "duplicates" in the hand) in a loop to populate the hand until the
-      // maximum allowable cards is met (use this criterion to end the loop).
+      // populate the hand until the maximum allowable cards is met.
       int index = 0;
       while (hand.getNumCards() < Hand.MAX_CARDS)
       {
@@ -141,7 +142,7 @@ public class Assig3
       }
       phase4Deck.init(1);
       phase4Deck.shuffle();
-      // TODO: print hands instead?
+
       for (int j = 0; j < phase4Deck.getPack().length; j++)
       {
          Card card = phase4Deck.dealCard();
