@@ -145,5 +145,11 @@ public class Assig3
          playerHands[j % numPlayers].takeCard(card);
          //System.out.println(card);
       }
+      for (Hand h : playerHands)
+      {
+         System.out.println("Hand= " + h.toString() +"\n");
+         h.resetHand();
+      }
+      kb.close();
    }
 }
