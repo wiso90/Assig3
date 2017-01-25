@@ -148,4 +148,13 @@ class Card
    {
       return errorFlag;
    }
+   
+   /**
+    * Clone is a method that creates a copy of the card.
+    * @return copy of the card.
+    */
+   public Card clone()
+   {
+      return new Card(this.getValue(), this.getSuit());
+   }
 }

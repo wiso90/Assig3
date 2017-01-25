@@ -1,12 +1,11 @@
 
 /**
  * 
- * @author Keith
+ * @author Huy Nguyen, Wissawakon Sriwarom, Keith Groves
  *
  */
 class Deck
 {
-
    private static final int NUMBER_OF_CARDS = 52;
    public static final int MAX_CARDS = 6 * NUMBER_OF_CARDS;
    private static Card[] masterPack = new Card[NUMBER_OF_CARDS];
@@ -50,10 +49,13 @@ class Deck
       cards = new Card[numPacks * NUMBER_OF_CARDS];
       for (int i = 0; i < cards.length; i++)
       {
-         cards[i] = masterPack[i % 52];
+         cards[i] = masterPack[i % 52].clone();
       }
    }
 
+   /**
+    * 
+    */
    private static void allocateMasterPack()
    {
       Card.Suit suit;

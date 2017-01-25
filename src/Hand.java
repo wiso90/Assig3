@@ -1,5 +1,5 @@
 /**
- * The hand class is a class that represents the cards held by a single player.
+ * The Hand class is a class that represents the cards held by a single player.
  * 
  * @author Keith
  *
@@ -39,7 +39,7 @@ class Hand
    {
       if (numCards < MAX_CARDS)
       {
-         Card newCard = new Card(card.getValue(), card.getSuit());
+         Card newCard = card.clone();
          myCards[numCards] = newCard;
          numCards++;
          return true;
