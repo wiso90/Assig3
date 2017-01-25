@@ -52,9 +52,7 @@ public class Assig3
       { kingHearts, sevenSpades, aceSpades };
       Hand hand = new Hand();
 
-      // Use takeCard() on these few cards (resulting in many, unavoidable
-      // "duplicates" in the hand) in a loop to populate the hand until the
-      // maximum allowable cards is met (use this criterion to end the loop).
+      // a to populate the hand until the maximum allowable cards is met.
       int index = 0;
       while (hand.getNumCards() < Hand.MAX_CARDS)
       {
