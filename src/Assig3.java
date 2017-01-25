@@ -143,7 +143,6 @@ public class Assig3
       {
          Card card = phase4Deck.dealCard();
          playerHands[j % numPlayers].takeCard(card);
-         //System.out.println(card);
       }
       System.out.println("Our hands from a shuffled deck:");
       for (Hand h : playerHands)
