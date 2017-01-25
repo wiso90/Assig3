@@ -131,6 +131,7 @@ public class Assig3
          playerHands[j % numPlayers].takeCard(card);
          System.out.println(card);
       }
+      System.out.println("Our hands from an unshuffled deck:");
       for (Hand h : playerHands)
       {
          System.out.println("Hand= " + h.toString() + "\n");
