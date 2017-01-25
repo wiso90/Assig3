@@ -24,19 +24,16 @@ public class Assig3
       Card kingHearts = new Card('K', Card.Suit.HEARTS);
       Card sevenSpades = new Card('7', Card.Suit.SPADES);
       Card illegalCard = new Card('0', Card.Suit.DIAMONDS);
+      
+      System.out.println(kingHearts);
+      System.out.println(sevenSpades);
+      System.out.println(illegalCard);
    }
    
    public static void phase2Test(){
-   // ----- Card Class testing ------
-      System.out.println("----- Card Class testing ------");
-
       Card kingHearts = new Card('K', Card.Suit.HEARTS);
       Card sevenSpades = new Card('7', Card.Suit.SPADES);
       Card illegalCard = new Card('0', Card.Suit.DIAMONDS);
-
-      System.out.println(kingHearts.toString());
-      System.out.println(sevenSpades.toString());
-      System.out.println(illegalCard.toString());
 
       // ----- Hand Class testing ------
       System.out.println("----- Hand Class testing ------");
@@ -99,7 +96,7 @@ public class Assig3
       }
    }
    /**
-    * The Deck test
+    * Phase 4 of the Deck test
     * 
     */
 public static void phase4Test(){
