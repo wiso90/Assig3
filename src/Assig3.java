@@ -141,7 +141,6 @@ public class Assig3
       }
       phase4Deck.init(1);
       phase4Deck.shuffle();
-      // TODO: print hands instead?
       for (int j = 0; j < phase4Deck.getPack().length; j++)
       {
          Card card = phase4Deck.dealCard();
