@@ -13,10 +13,17 @@ public class Assig3
 
    public static void main(String[] args)
    {
-
+     phase1Test();
      phase2Test();
      phase3Test();
      phase4Test();
+   }
+   
+   public static void phase1Test(){
+      System.out.println("----- Card Class testing ------");
+      Card kingHearts = new Card('K', Card.Suit.HEARTS);
+      Card sevenSpades = new Card('7', Card.Suit.SPADES);
+      Card illegalCard = new Card('0', Card.Suit.DIAMONDS);
    }
    
    public static void phase2Test(){
