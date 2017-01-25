@@ -13,6 +13,7 @@ class Deck
    private Card[] cards;
    private int topCard;
    private int numPacks;
+
    /**
     * a constructor that populates the arrays and assigns initial values to
     * members.
@@ -21,6 +22,26 @@ class Deck
     */
    public Deck(int numPacks)
    {
+      if (numPacks * NUMBER_OF_CARDS > MAX_CARDS)
+      {
+         this.numPacks = 1; // default pack is 1 if number of packs exceed
+                            // MAX_CARDS
+      }
+      if (emptyMasterPack)
+      {
+         allocateMasterPack();
+      }
+      init(numPacks); // make a certain amount of decks using MasterPack as the
+                      // model
+   }
+
+   /**
+    * initializes the Deck to 1 pack by default
+    */
+   public Deck()
+   {
+      this.numPacks = 1; // if no parameters passed, 1 pack is assumed
+
       if (emptyMasterPack)
       {
          allocateMasterPack();
@@ -29,28 +50,20 @@ class Deck
    }
 
    /**
-    * initializes the Deck to 1 pack by default
-    */
-   public Deck()
-   {
-      if (emptyMasterPack)
-      {
-         allocateMasterPack();
-      }
-      init(1);
-   }
-
-   /**
     * initializes the cards array.
+    * 
     * @param numPacks
     */
    public void init(int numPacks)
    {
+
       cards = new Card[numPacks * NUMBER_OF_CARDS];
       for (int i = 0; i < cards.length; i++)
       {
          cards[i] = masterPack[i % 52].clone();
+         topCard++;
       }
+
    }
 
    /**
@@ -73,7 +86,7 @@ class Deck
          {
             suit = Card.Suit.SPADES;
          }
-         // chang suit after every 13th card
+         // change suit after every 13th card
          masterPack[i] = new Card(Card.cardNumber[i % 13], suit);
       }
       emptyMasterPack = false;
@@ -90,12 +103,10 @@ class Deck
       for (int i = cards.length - 1; i > 0; i--)
       {
          int rand = (int) (Math.random() * i);
-         // System.out.println(rand);
          temp = cards[i];
          cards[i] = cards[rand];
          cards[rand] = temp;
       }
-      topCard = 0;
 
    }
 
@@ -105,15 +116,22 @@ class Deck
     */
    public Card dealCard()
    {
-      Card theCard;
-      if (topCard < cards.length)
+      if (topCard == 0)
       {
-         theCard = cards[topCard];
-         topCard++;
-      } else
-         theCard = null;
+         return null;
+      }
+
+      Card theCard = new Card(cards[topCard - 1].getValue(),
+         cards[topCard - 1].getSuit());
+      cards[topCard - 1] = null;
+      topCard--;
 
       return theCard;
+   }
+
+   public int getTopCard()
+   {
+      return topCard;
    }
 
 }
